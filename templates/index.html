@@ -1,0 +1,100 @@
+{% extends 'base.html' %} {% block section %}
+<div class="container-fluid index">
+    <div class="row">
+        <div class="col-lg-3 col-md-12 my-4 ms-4">
+            <div class="card" style="width: 18rem">
+                <p class="h3 text-center">News list</p>
+                <ul class="list-group list-group-flush">
+                    {% for i in postlist%}
+                    <a
+                        class="posts-list"
+                        href="{{url_for('newspost', id_post=i[0])}}"
+                    >
+                        <li class="list-group-item">
+                            ID: {{i[0]}}, Title: {{i[1]}}, {{i[2]}}
+                        </li>
+                    </a>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-5 col-md-12 my-4">
+            <div id="carouselExampleIndicators" class="carousel slide">
+                <div class="carousel-indicators">
+                    <button
+                        type="button"
+                        data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide-to="0"
+                        class="active"
+                        aria-current="true"
+                        aria-label="Slide 1"
+                    ></button>
+                    <button
+                        type="button"
+                        data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide-to="1"
+                        aria-label="Slide 2"
+                    ></button>
+                    <button
+                        type="button"
+                        data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide-to="2"
+                        aria-label="Slide 3"
+                    ></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img
+                            src="https://rg.ru/uploads/images/214/34/08/photorep_imageid_538385_8085b70e8b6927e1575618884.jpg"
+                            class="d-block w-100"
+                            alt="..."
+                        />
+                    </div>
+                    <div class="carousel-item">
+                        <img
+                            src="https://www.purina.ru/sites/default/files/2021-11/shutterstock_1559569190_mobile-min.jpg"
+                            class="d-block w-100"
+                            alt="..."
+                        />
+                    </div>
+                    <div class="carousel-item">
+                        <img
+                            src="https://s14.stc.yc.kpcdn.net/share/i/12/12495117/wr-960.webp"
+                            class="d-block w-100"
+                            alt="..."
+                        />
+                    </div>
+                </div>
+                <button
+                    class="carousel-control-prev"
+                    type="button"
+                    data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev"
+                >
+                    <span
+                        class="carousel-control-prev-icon"
+                        aria-hidden="true"
+                    ></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button
+                    class="carousel-control-next"
+                    type="button"
+                    data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next"
+                >
+                    <span
+                        class="carousel-control-next-icon"
+                        aria-hidden="true"
+                    ></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-12 text-center text-tg">
+            <p style="font-size: 1.5em">Bot Telegram</p>
+            <a style="font-size: 1.5em" href="#">&#128054;</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

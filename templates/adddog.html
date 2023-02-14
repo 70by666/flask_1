@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% block section %}
+<div class="container-fluid news">
+    <div class="row">
+        <div class="col-lg-4 col-md-12"></div>
+        <div class="col-lg-4 col-md-12 my-4">
+            {% for cat, msg in get_flashed_messages(True) %}
+            <div class="alert alert-{{cat}}" role="alert">{{msg}}</div>
+            {% endfor %}
+            <form action="{{url_for('adddog')}}" method="post" enctype="multipart/form-data">
+                <div class="input-group mb-3">
+                    <input
+                        type="file"
+                        class="form-control form-control"
+                        id="formFileSm"
+                        name="file"
+                    />
+                </div>
+                <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+        </div>
+        <div class="col-lg-4 col-md-12"></div>
+    </div>
+</div>
+{% endblock %}

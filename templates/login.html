@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% block section %}
+<div class="container-fluid form-login">
+    <div class="row">
+        <div class="col-lg-4 col-md-12"></div>
+        <div class="col-lg-4 col-md-12 my-4">
+            {% for cat, msg in get_flashed_messages(True) %}
+            <div class="alert alert-{{cat}}" role="alert">{{msg}}</div>
+            {% endfor %}
+            <form action="" method="post">
+                {{ form.hidden_tag() }} 
+                {% for i in form if i.name not in ["csrf_token", "save", "submit"] -%}
+                <div class="mb-3">
+                    {{i.label()}} 
+                    {% if i.errors %} 
+                    {{i(class_="form-control")}}
+                    {% for i in i.errors %}
+                    <div class="alert alert-danger mt-3">{{i}}</div>
+                    {% endfor %} 
+                    {% else %} 
+                    {{i(class_="form-control")}} 
+                    {%endif %} 
+                    {% endfor%}
+                </div>
+                <div class="mb-3 form-check">
+                    {{ form.save.label }} {{
+                    form.save(class_="form-check-input")}}
+                </div>
+                {{ form.submit(class_="btn btn-primary")}}
+                <a href="{{url_for('register')}}">
+                    <button type="button" class="btn btn-primary ms-4">
+                        Register
+                    </button>
+                </a>
+            </form>
+        </div>
+        <div class="col-lg-4 col-md-12"></div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block section %}
+<div class="container-fluid news">
+    <div class="row">
+        <div class="col-lg-3 col-md-12"></div>
+        <div class="col-lg-6 col-md-12 mb-4">
+            <div class="card text-bg-dark mt-4">
+                <img src="{{url_for('postimg', id_post=post[0])}}" class="card-img" alt="..." />
+                <div
+                    class="card-img-overlay"
+                    style="text-shadow: 2px 2px 2px #000"
+                >
+                    <h5 class="card-title">{{post[1]}}</h5>
+                    <p class="card-text">{{post[2]}}</p>
+                    <p class="card-text">{{post[3]}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-12"></div>
+    </div>
+</div>
+{% endblock %}

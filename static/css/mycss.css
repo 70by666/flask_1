@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+
+
+body {
+    background-color: rgb(137, 175, 175);
+    font-family: "Rubik", serif;    
+}
+
+
+/* header */
+
+.navbar-nav:hover {
+    --bs-nav-link-hover-color: rgb(248, 213, 213);
+}
+
+.navbar-nav .nav-link.active {
+    color: rgb(255, 125, 125);
+}
+
+.text-nav-foot {
+    color: rgb(248, 170, 170);
+}
+
+.navbar-brand>img {
+    max-width: 30px;
+}
+
+.navbar-m {
+    display: none;
+}  
+
+.nav-footer:hover {
+    --bs-nav-link-hover-color: rgb(248, 213, 213);
+}
+
+
+/* section index  */
+
+.text-tg {
+    margin-top: 15em;
+}
+
+
+/* section login */
+
+.form-login {
+    margin-top: 1.5em; 
+    margin-bottom: 5em;
+}
+
+
+/* section news */
+.posts-list {
+    text-decoration: none;
+}
+
+/* footer  */
+
+footer {
+    background-color: rgb(33, 37, 41);
+}
+
+
+/* media */
+
+@media (max-width: 991px) {
+    .navbar-m {
+        display: flex;
+    }
+}
+
+
+/* btn  */
+
+#upBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: rgb(0, 110, 255); /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+}
+
+#upBtn:hover {
+    background-color: #555; /* Add a dark-grey background on hover */
+}

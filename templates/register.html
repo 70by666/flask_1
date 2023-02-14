@@ -1,0 +1,67 @@
+{% extends 'base.html' %} {% block section %}
+<div class="container-fluid form-login">
+    <div class="row">
+        <div class="col-lg-4 col-md-12"></div>
+        <div class="col-lg-4 col-md-12">
+            {% for cat, msg in get_flashed_messages(True) %}
+            <div class="alert alert-{{cat}}" role="alert">{{msg}}</div>
+            {% endfor %}
+            <form action="/register" method="post">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label"
+                        >Username</label
+                    >
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="exampleInputEmail1"
+                        aria-describedby="emailHelp"
+                        name="name"
+                        value=""
+                        required
+                    />
+                    <label for="exampleInputEmail1" class="form-label"
+                        >Email address</label
+                    >
+                    <input
+                        type="email"
+                        class="form-control"
+                        id="exampleInputEmail1"
+                        aria-describedby="emailHelp"
+                        name="email"
+                        required
+                    />
+                    <div id="emailHelp" class="form-text">
+                        We'll never share your email with anyone else.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label"
+                        >Password</label
+                    >
+                    <input
+                        type="password"
+                        class="form-control"
+                        id="exampleInputPassword1"
+                        name="password"
+                        required
+                    />
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label"
+                        >Password</label
+                    >
+                    <input
+                        type="password"
+                        class="form-control"
+                        id="exampleInputPassword1"
+                        name="password2"
+                        required
+                    />
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

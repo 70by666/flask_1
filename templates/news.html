@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% block section %}
+<div class="container-fluid news">
+    <div class="row">
+        <div class="col-lg-5 col-md-12"></div>
+        <div class="col-lg-4 col-md-12 my-4">
+            <div class="card" style="width: 18rem">
+                <ul class="list-group list-group-flush">
+                    {% for i in postlist%}
+                    <a class="posts-list" href="{{url_for('newspost', id_post=i.id)}}">
+                        <li class="list-group-item">ID: {{i.id}}, Title: {{i.titlepost}}</li>
+                    </a>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-12 my-4"></div>
+    </div>
+</div>
+{% endblock %}

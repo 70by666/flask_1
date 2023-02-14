@@ -1,0 +1,143 @@
+{% extends 'base.html' %} {% block section %}
+<div class="page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="row d-flex justify-content-center">
+            <div class="col-xl-3 col-md-12"></div>
+            <div class="col-xl-6 col-md-12">
+                {% for cat, msg in get_flashed_messages(True) %}
+                <div class="alert alert-{{cat}}" role="alert">{{msg}}</div>
+                {% endfor %}
+                <div class="card user-card-full">
+                    <div class="row m-l-0 m-r-0">
+                        <div class="col-sm-4 bg-c-lite-green user-profile">
+                            <div class="card-block text-center text-white">
+                                <div class="m-b-25">
+                                    <img
+                                        src="{{url_for('ava')}}"
+                                        class="rounded w-100"
+                                        alt="User-Profile-Image"
+                                    />
+                                </div>
+                                <label for="formFileSm" class="form-label"
+                                    >New avatar</label
+                                >
+                                <form
+                                    action="{{url_for('upload')}}"
+                                    method="POST"
+                                    enctype="multipart/form-data"
+                                >
+                                    <div class="mb-3">
+                                        <input
+                                            class="form-control form-control-sm"
+                                            id="formFileSm"
+                                            type="file"
+                                            name="file"
+                                        />
+                                        <input
+                                            class="form-control form-control-sm mt-1"
+                                            type="submit"
+                                            value="Upload"
+                                        />
+                                    </div>
+                                </form>
+                                <h6 class="f-w-600" style="font-size: 1.5em">
+                                    {{current_user.get_name()}}
+                                </h6>
+                                <i
+                                    class="mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"
+                                ></i>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="card-block">
+                                <h6 class="m-b-20 p-b-5 b-b-default f-w-600">
+                                    Information
+                                </h6>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Email</p>
+                                        <h6 class="text-muted f-w-400">
+                                            {{current_user.get_email()}}
+                                        </h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Phone</p>
+                                        <h6 class="text-muted f-w-400">None</h6>
+                                    </div>
+                                </div>
+                                <h6
+                                    class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600"
+                                >
+                                    Projects
+                                </h6>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Recent</p>
+                                        <h6 class="text-muted f-w-400">None</h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">
+                                            Most Viewed
+                                        </p>
+                                        <h6 class="text-muted f-w-400">None</h6>
+                                    </div>
+                                </div>
+                                <h6
+                                    class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600"
+                                >
+                                    Registration date
+                                </h6>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <h6 class="text-muted f-w-400">
+                                            {{current_user.get_reg_date()}}
+                                        </h6>
+                                    </div>
+                                    <div class="col-sm-6"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <a href="{{url_for('logout')}}">
+                                        <button
+                                            type="button"
+                                            class="btn btn-primary m-4"
+                                        >
+                                            Logout
+                                        </button>
+                                    </a>
+                                </div>
+                                <div class="col-sm-4">
+                                    {% if current_user.get_id() == "1" %}
+                                    <a href="{{url_for('addnews')}}">
+                                        <button
+                                            type="button"
+                                            class="btn btn-primary m-4"
+                                        >
+                                            Add news
+                                        </button>
+                                    </a>
+                                    {% endif %}
+                                </div>
+                                <div class="col-sm-4">
+                                    {% if current_user.get_id() == "1" %}
+                                    <a href="{{url_for('adddog')}}">
+                                        <button 
+                                            type="button"
+                                            class="btn btn-primary m-4"
+                                        >
+                                            Add dog
+                                        </button>
+                                    </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-12"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}

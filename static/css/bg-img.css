@@ -1,0 +1,35 @@
+.img-text {
+    color: rgba(98, 231, 255, 0.637);
+    z-index: 2;
+    font-family: "Caveat", serif;
+}
+
+.bg-img {
+    height: 50vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg-img img {
+    height: 50vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.img-effect {
+    height: 50vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.507);
+}

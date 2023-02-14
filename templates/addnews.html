@@ -1,0 +1,46 @@
+{% extends 'base.html' %} {% block section %}
+<div class="container-fluid news">
+    <div class="row">
+        <div class="col-lg-4 col-md-12"></div>
+        <div class="col-lg-4 col-md-12 my-4">
+            {% for cat, msg in get_flashed_messages(True) %}
+            <div class="alert alert-{{cat}}" role="alert">{{msg}}</div>
+            {% endfor %}
+            <form action="{{url_for('addnews')}}" method="post" enctype="multipart/form-data">
+                <div class="input-group mb-3">
+                    <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Title"
+                        aria-label="Username"
+                        aria-describedby="basic-addon1"
+                        name="titlepost"
+                        required
+                    />
+                </div>
+                <div class="input-group mb-3">
+                    <input
+                        type="file"
+                        class="form-control form-control"
+                        id="formFileSm"
+                        name="file"
+                    />
+                </div>
+                <div class="form-floating my-2">
+                    <textarea
+                        class="form-control"
+                        placeholder="Leave a comment here"
+                        id="floatingTextarea2"
+                        style="height: 100px"
+                        name="text"
+                        required
+                    ></textarea>
+                    <label for="floatingTextarea2">Post</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+        </div>
+        <div class="col-lg-4 col-md-12"></div>
+    </div>
+</div>
+{% endblock %}
