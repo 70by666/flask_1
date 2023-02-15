@@ -8,9 +8,8 @@ from flask_login import LoginManager, login_user, login_required, current_user, 
 from database import PgDataBase
 from userlogin import UserLogin
 from forms import LoginForm
+from admin.admin import admin
 
-
-app = Flask(__name__)
 
 load_dotenv(find_dotenv())
 
@@ -18,9 +17,11 @@ load_dotenv(find_dotenv())
 SECRET_KEY = os.getenv("SECRET_KEY")
 MAX_CONTENT_LENGTH = 1024 * 1024 * 5
 
+app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("SQLALCHEMY_DATABASE_URI")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config.from_object(__name__)
+app.register_blueprint(admin, url_prefix="/admin")
 
 db = SQLAlchemy(app)
 
